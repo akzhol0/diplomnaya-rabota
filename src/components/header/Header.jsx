@@ -1,35 +1,86 @@
-import Brand from "./Brand.jsx";
+import { useState } from "react";
 
 const Header = () => {
+  const [modal, setModal] = useState(false);
+  const [modalMobile, setModalMobile] = useState(false);
+  const [burger, setBurger] = useState(false);
+
   return (
-    <div className="w-full h-[700px] md:h-[800px] flex justify-center items-center background-paral">
-      <div className="w-full md:w-[80%] h-full flex flex-col justify-between px-2 py-10 text-[#2b2b2b]">
-        <div>
-          <Brand />
-          <p className="text-lg md:text-2xl">
-            Ознакомительный сайт по аудиту и информационной безопасности
-          </p>
+    <div className="sticky top-0 w-full h-[70px] flex justify-center items-center bg-[#FBFBFD] border-b z-50">
+      <div className="w-full md:w-[90%] lg:w-[80%] relative px-4 flex justify-between">
+        <p className="brand text-[40px] font-bold text-[#2b2b2b] cursor-pointer">
+          Dastan
+        </p>
+        <ul className="hidden md:flex items-center justify-between md:gap-4 lg:gap-6 text-lg whitespace-nowrap">
+          <li
+            onMouseEnter={() => setModal(true)}
+            onMouseLeave={() => setModal(false)}
+            className="cursor-pointer border-b border-white hover:border-black duration-200"
+          >
+            Технологии
+          </li>
+          <li
+            onMouseEnter={() => setModal(true)}
+            onMouseLeave={() => setModal(false)}
+            className="cursor-pointer border-b border-white hover:border-black duration-200"
+          >
+            Виды Аудитов
+          </li>
+          <li
+            onMouseEnter={() => setModal(true)}
+            onMouseLeave={() => setModal(false)}
+            className="cursor-pointer border-b border-white hover:border-black duration-200"
+          >
+            Что такое Аудит?
+          </li>
+          <button
+            className="px-8 py-2 border border-red-600 rounded cursor-pointer
+            font-bold hover:bg-red-600 hover:text-white duration-200 text-red-600"
+          >
+            Узнать больше
+          </button>
+        </ul>
+        <div
+          onClick={() => setBurger(!burger)}
+          className="w-[30px] h-[30px] mt-4 flex md:hidden flex-col items-center justify-between cursor-pointer"
+        >
+          <span className="w-full h-1 bg-black"></span>
+          <span className="w-full h-1 bg-black"></span>
+          <span className="w-full h-1 bg-black"></span>
         </div>
-        <div>
-          <p className="text-[35px] md:text-[60px] font-semibold">
-            Аудит информационной <br /> безопасности
-          </p>
-          <hr className="w-[200px] md:w-[300px] bg-red-600 h-[2px] border-0 my-4" />
-          <p className="max-w-[700px] text-[16px]">
-            Аудит — это независимая проверка и анализ финансовой, операционной
-            или другой деятельности организации для оценки соответствия
-            стандартам, выявления ошибок, рисков или улучшения процессов и
-            повышения доверия.
-          </p>
-          <span className="spanspan"></span>
-        </div>
-        <div>
-          <p className="text-[12px]">
-            Дипломная работа <br /> Тема: Разработка веб-приложения для
-            проведения аудита информационной безопасности на предприятии <br />{" "}
-            Сделал: Тобажаров Дастан
-          </p>
-        </div>
+        {modal && (
+          <div className="anim absolute top-[71px] w-full h-[300px] bg-[#1b1b1b] z-50 duration-200"></div>
+        )}
+        {burger && (
+          <div className="absolute top-[65px] left-0 w-full min-h-[10px] bg-white">
+            <ul className="flex md:hidden py-4 items-center justify-center gap-6 text-lg">
+              <li
+                onMouseEnter={() => setModalMobile(true)}
+                onMouseLeave={() => setModalMobile(false)}
+                className="cursor-pointer border-b border-white hover:border-black duration-200"
+              >
+                Технологии
+              </li>
+              <li
+                onMouseEnter={() => setModalMobile(true)}
+                onMouseLeave={() => setModalMobile(false)}
+                className="cursor-pointer border-b border-white hover:border-black duration-200"
+              >
+                Виды Аудитов
+              </li>
+              <li
+                onMouseEnter={() => setModalMobile(true)}
+                onMouseLeave={() => setModalMobile(false)}
+                className="cursor-pointer border-b border-white hover:border-black duration-200"
+              >
+                Что такое Аудит?
+              </li>
+            </ul>
+            {modalMobile && (
+              <div className="anim absolute w-full h-[400px] bg-[#1b1b1b] top-[62px]"></div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
