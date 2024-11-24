@@ -11,10 +11,16 @@ function App() {
   const techRef = useRef(null);
   const importantRef = useRef(null);
   const keysRef = useRef(null);
+  const moreRef = useRef(null);
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
-      <Header keysRef={keysRef} importantRef={importantRef} techRef={techRef} />
+      <Header
+        moreRef={moreRef}
+        keysRef={keysRef}
+        importantRef={importantRef}
+        techRef={techRef}
+      />
       <div className="w-full flex flex-col justify-start items-center z-10">
         <Parallax />
         <div
@@ -55,7 +61,10 @@ function App() {
         </div>
         <div className="w-full min-h-[200px] flex flex-col items-center gap-6">
           <p className="text-xl font-semibold">Узнать больше</p>
-          <div className="w-full px-2 sm:w-[80%] md:w-[60%] flex flex-col gap-6">
+          <div
+            ref={moreRef}
+            className="w-full px-2 sm:w-[80%] md:w-[60%] flex flex-col gap-6"
+          >
             <div className="w-full flex gap-6">
               <input
                 className="w-full border-b focus:outline-0 py-4 rounded-lg ps-4"
