@@ -118,6 +118,12 @@ const Header = ({ techRef, importantRef, keysRef, moreRef }) => {
                 </button>
               </li>
               <button
+                onClick={() => {
+                  // eslint-disable-next-line react/prop-types
+                  moreRef.current?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
                 className="px-8 py-2 border border-red-600 rounded cursor-pointer
             font-bold hover:bg-red-600 hover:text-white duration-200 text-red-600"
               >
