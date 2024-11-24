@@ -23,10 +23,10 @@ function App() {
       />
       <div className="w-full flex flex-col justify-start items-center z-10">
         <Parallax />
+        <p className="py-6" ref={importantRef}></p>
         <div
-          ref={importantRef}
           id="important"
-          className="w-full md:w-[80%] px-4 md:px-0 min-h-[600px] py-4"
+          className="w-full md:w-[80%] px-4 md:px-0 min-h-[600px]"
         >
           <h1 className="text-[30px] my-8 lg:my-16 font-bold text-[#131313]">
             Важность аудита
@@ -35,7 +35,8 @@ function App() {
             <Aspects />
           </div>
         </div>
-        <div ref={techRef} className="w-full flex justify-center bg-[#fbfbfd]">
+        <p className="py-6" ref={techRef}></p>
+        <div className="w-full flex justify-center bg-[#fbfbfd]">
           <div className="w-full md:w-[80%] px-4 md:px-0 ">
             <h1 className="text-[30px] my-8 lg:my-16 font-bold text-[#000]">
               Использованные технологий
@@ -45,13 +46,8 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="w-full h-[200px] bg-[#1b1b1b] flex justify-center items-center text-white text-lg md:text-2xl text-center font-semibold">
-          <p>Аудит — это инструмент развития и защиты компании.</p>
-        </div>
-        <div
-          ref={keysRef}
-          className="w-full min-h-[200px] flex flex-col items-center  "
-        >
+        <p className="py-6" ref={keysRef}></p>
+        <div className="w-full min-h-[200px] flex flex-col items-center  ">
           <div className="w-full md:w-[80%] px-2 md:px-0">
             <p className="text-[30px] my-8 lg:my-16 font-bold text-[#000]">
               Ключевые этапы аудита
@@ -59,12 +55,13 @@ function App() {
             <Etaps />
           </div>
         </div>
-        <div className="w-full min-h-[200px] flex flex-col items-center gap-6">
+        <div className="w-full h-[200px] bg-[#1b1b1b] flex justify-center items-center text-white text-lg md:text-2xl text-center font-semibold">
+          <p>Аудит — это инструмент развития и защиты компании.</p>
+        </div>
+        <p className="py-8" ref={moreRef}></p>
+        <div className="w-full min-h-[200px] flex flex-col items-center gap-6 my-6">
           <p className="text-xl font-semibold">Узнать больше</p>
-          <div
-            ref={moreRef}
-            className="w-full px-2 sm:w-[80%] md:w-[60%] flex flex-col gap-6"
-          >
+          <div className="w-full px-2 sm:w-[80%] md:w-[60%] flex flex-col gap-6">
             <div className="w-full flex gap-6">
               <input
                 className="w-full border-b focus:outline-0 py-4 rounded-lg ps-4"

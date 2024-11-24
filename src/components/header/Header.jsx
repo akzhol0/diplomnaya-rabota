@@ -119,6 +119,7 @@ const Header = ({ techRef, importantRef, keysRef, moreRef }) => {
               </li>
               <button
                 onClick={() => {
+                  setBurger(false);
                   // eslint-disable-next-line react/prop-types
                   moreRef.current?.scrollIntoView({
                     behavior: "smooth",
