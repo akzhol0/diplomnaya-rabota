@@ -7,11 +7,11 @@ const Header = () => {
 
   return (
     <div className="sticky top-0 w-full h-[70px] flex justify-center items-center bg-[#FBFBFD] border-b z-50">
-      <div className="w-full md:w-[90%] lg:w-[80%] relative px-4 flex justify-between">
+      <div className="w-[1600px] relative px-4 md:px-8 flex justify-between">
         <p className="brand text-[40px] font-bold text-[#2b2b2b] cursor-pointer">
           Dastan
         </p>
-        <ul className="hidden md:flex items-center justify-between md:gap-4 lg:gap-6 text-lg whitespace-nowrap">
+        <ul className="hidden lg:flex items-center justify-between lg:gap-6 z-60 text-lg whitespace-nowrap">
           <li
             onMouseEnter={() => setModal(true)}
             onMouseLeave={() => setModal(false)}
@@ -39,21 +39,22 @@ const Header = () => {
           >
             Узнать больше
           </button>
+          <p className="hidden xl:block">+7 (778) 311 61-62</p>
         </ul>
         <div
           onClick={() => setBurger(!burger)}
-          className="w-[30px] h-[30px] mt-4 flex md:hidden flex-col items-center justify-between cursor-pointer"
+          className="w-[30px] h-[30px] mt-4 flex lg:hidden flex-col items-center justify-between cursor-pointer"
         >
           <span className="w-full h-1 bg-black"></span>
           <span className="w-full h-1 bg-black"></span>
           <span className="w-full h-1 bg-black"></span>
         </div>
         {modal && (
-          <div className="anim absolute top-[71px] w-full h-[300px] bg-[#1b1b1b] z-50 duration-200"></div>
+          <div className="anim absolute top-[65px] w-full h-[300px] bg-[#1b1b1b] z-50 duration-200"></div>
         )}
         {burger && (
           <div className="absolute top-[65px] left-0 w-full min-h-[10px] bg-white">
-            <ul className="flex md:hidden py-4 items-center justify-center gap-6 text-lg">
+            <ul className="flex lg:hidden py-4 items-center justify-center gap-2 sm:gap-8 text-base sm:text-lg whitespace-nowrap">
               <li
                 onMouseEnter={() => setModalMobile(true)}
                 onMouseLeave={() => setModalMobile(false)}
@@ -77,7 +78,7 @@ const Header = () => {
               </li>
             </ul>
             {modalMobile && (
-              <div className="anim absolute w-full h-[400px] bg-[#1b1b1b] top-[62px]"></div>
+              <div className="anim absolute w-full h-[400px] bg-[#1b1b1b] top-[56px]"></div>
             )}
           </div>
         )}

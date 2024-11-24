@@ -22,11 +22,11 @@ html, body {
 .bgbgbg {
     background-image: url('/images/bgbgbg.png');
     background-size: cover;
-    opacity: 0.1;
+    opacity: 0.2;
 }
 
 .anim {
-    animation: modal .2s ease-in-out;
+    animation: modal .3s ease-in-out;
 }
 
 @keyframes modal {
@@ -36,4 +36,3 @@ html, body {
         opacity: 1;
     }
 }
-

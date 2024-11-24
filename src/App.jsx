@@ -8,17 +8,8 @@ function App() {
     <div className="w-full flex flex-col justify-center items-center">
       <Header />
       <div className="w-full flex flex-col justify-start items-center z-10">
-        <div className="w-full bgbgbg h-[800px] flex items-center bg-white"></div>
-        <div className="absolute z-1 left-0 top-[30%] text-[30px] px-2 md:ps-[10%] font-bold text-[#2b2b2b]">
-          <p>Разработка веб-приложения для</p>
-          <div>
-            проведения
-            <label className="text-[#C63031]"> аудита информационной</label>
-          </div>
-          <p>безопасности на предприятии</p>
-        </div>
-        <div className="w-full h-[200px] bg-[#1b1b1b]"></div>
         <Parallax />
+        <div className="min-w-full h-[200px] bg-[#1b1b1b] flex items-center text-white text-3xl"></div>
       </div>
       <Footer />
     </div>
