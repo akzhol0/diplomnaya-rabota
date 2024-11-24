@@ -3,7 +3,7 @@ import Brand from "../header/Brand.jsx";
 const Parallax = () => {
   return (
     <div className="w-full h-[700px] md:h-[800px] flex justify-center items-center background-paral">
-      <div className="w-full md:w-[80%] h-full flex flex-col justify-between px-2 py-10 text-[#2b2b2b]">
+      <div className="w-full md:w-[80%] h-full flex flex-col justify-between px-2 md:px-0 py-10 text-[#2b2b2b]">
         <div>
           <Brand />
           <p className="text-lg md:text-2xl">

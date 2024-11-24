@@ -1,8 +1,7 @@
 import { useState } from "react";
 
-const Header = () => {
-  const [modal, setModal] = useState(false);
-  const [modalMobile, setModalMobile] = useState(false);
+// eslint-disable-next-line react/prop-types
+const Header = ({ techRef, importantRef, keysRef }) => {
   const [burger, setBurger] = useState(false);
 
   return (
@@ -12,26 +11,41 @@ const Header = () => {
           Dastan
         </p>
         <ul className="hidden lg:flex items-center justify-between lg:gap-6 z-60 text-lg whitespace-nowrap">
-          <li
-            onMouseEnter={() => setModal(true)}
-            onMouseLeave={() => setModal(false)}
-            className="cursor-pointer border-b border-white hover:border-black duration-200"
-          >
-            Технологии
+          <li className="cursor-pointer border-b border-white hover:border-black duration-200">
+            <button
+              onClick={() => {
+                // eslint-disable-next-line react/prop-types
+                importantRef.current?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Важность аудита
+            </button>
           </li>
-          <li
-            onMouseEnter={() => setModal(true)}
-            onMouseLeave={() => setModal(false)}
-            className="cursor-pointer border-b border-white hover:border-black duration-200"
-          >
-            Виды Аудитов
+          <li className="cursor-pointer border-b border-white hover:border-black duration-200">
+            <button
+              onClick={() => {
+                // eslint-disable-next-line react/prop-types
+                techRef.current?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Технологии
+            </button>
           </li>
-          <li
-            onMouseEnter={() => setModal(true)}
-            onMouseLeave={() => setModal(false)}
-            className="cursor-pointer border-b border-white hover:border-black duration-200"
-          >
-            Что такое Аудит?
+          <li className="cursor-pointer border-b border-white hover:border-black duration-200">
+            <button
+              onClick={() => {
+                // eslint-disable-next-line react/prop-types
+                keysRef.current?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Ключевые этапы
+            </button>
           </li>
           <button
             className="px-8 py-2 border border-red-600 rounded cursor-pointer
@@ -49,37 +63,62 @@ const Header = () => {
           <span className="w-full h-1 bg-black"></span>
           <span className="w-full h-1 bg-black"></span>
         </div>
-        {modal && (
-          <div className="anim absolute top-[65px] w-full h-[300px] bg-[#1b1b1b] z-50 duration-200"></div>
-        )}
         {burger && (
-          <div className="absolute top-[65px] left-0 w-full min-h-[10px] bg-white">
-            <ul className="flex lg:hidden py-4 items-center justify-center gap-2 sm:gap-8 text-base sm:text-lg whitespace-nowrap">
+          <div className="lg:hidden absolute top-[65px] left-0 w-full min-h-[10px] bg-white">
+            <ul className="flex flex-col lg:hidden py-4 items-center justify-center gap-4 sm:gap-8 text-xl border-b border-black whitespace-nowrap">
               <li
-                onMouseEnter={() => setModalMobile(true)}
-                onMouseLeave={() => setModalMobile(false)}
+                onClick={() => setBurger(false)}
                 className="cursor-pointer border-b border-white hover:border-black duration-200"
               >
-                Технологии
+                <button
+                  onClick={() => {
+                    // eslint-disable-next-line react/prop-types
+                    importantRef.current?.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Важность аудита
+                </button>
               </li>
               <li
-                onMouseEnter={() => setModalMobile(true)}
-                onMouseLeave={() => setModalMobile(false)}
+                onClick={() => setBurger(false)}
                 className="cursor-pointer border-b border-white hover:border-black duration-200"
               >
-                Виды Аудитов
+                <button
+                  onClick={() => {
+                    // eslint-disable-next-line react/prop-types
+                    techRef.current?.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Технологии
+                </button>
               </li>
               <li
-                onMouseEnter={() => setModalMobile(true)}
-                onMouseLeave={() => setModalMobile(false)}
+                onClick={() => setBurger(false)}
                 className="cursor-pointer border-b border-white hover:border-black duration-200"
               >
-                Что такое Аудит?
+                <button
+                  onClick={() => {
+                    // eslint-disable-next-line react/prop-types
+                    keysRef.current?.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Ключевые этапы
+                </button>
               </li>
+              <button
+                className="px-8 py-2 border border-red-600 rounded cursor-pointer
+            font-bold hover:bg-red-600 hover:text-white duration-200 text-red-600"
+              >
+                Узнать больше
+              </button>
+              <p>+7 (778) 311 61-62</p>
             </ul>
-            {modalMobile && (
-              <div className="anim absolute w-full h-[400px] bg-[#1b1b1b] top-[56px]"></div>
-            )}
           </div>
         )}
       </div>
