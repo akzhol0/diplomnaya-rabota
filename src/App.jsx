@@ -5,13 +5,32 @@ import Parallax from "./components/parallax/Parallax.jsx";
 import Aspects from "./components/aspects/Aspects.jsx";
 import Technologies from "./components/tech/Technologies.jsx";
 import Etaps from "./components/etaps/Etaps.jsx";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import TypesMain from "./components/typesMain/TypesMain.jsx";
 
 function App() {
   const techRef = useRef(null);
   const importantRef = useRef(null);
   const keysRef = useRef(null);
   const moreRef = useRef(null);
+  const typesRef = useRef(null);
+
+  const [gg, setgg] = useState(false);
+
+  const toggleVisibility = () => {
+    if (window.scrollY > 900) {
+      setgg(true);
+    } else {
+      setgg(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", toggleVisibility);
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+    };
+  }, []);
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
@@ -20,6 +39,7 @@ function App() {
         keysRef={keysRef}
         importantRef={importantRef}
         techRef={techRef}
+        typesRef={typesRef}
       />
       <div className="w-full flex flex-col justify-start items-center z-10">
         <Parallax />
@@ -43,6 +63,17 @@ function App() {
             </h1>
             <div className="flex flex-col gap-8 lg:flex-row justify-between my-8">
               <Technologies />
+            </div>
+          </div>
+        </div>
+        <p className="py-6" ref={typesRef}></p>
+        <div className="w-full flex justify-center">
+          <div className="w-full md:w-[80%] px-4 md:px-0 ">
+            <h1 className="text-[26px] my-8 lg:my-16 font-bold text-[#000]">
+              Виды аудита в информационной безоспасноти
+            </h1>
+            <div className="flex flex-col gap-8 lg:flex-row justify-between my-8">
+              <TypesMain />
             </div>
           </div>
         </div>
@@ -91,6 +122,20 @@ function App() {
           </div>
         </div>
       </div>
+      {gg && (
+        <div
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
+          className="fixed flex justify-center items-center z-50 right-[20px] bottom-[20px] w-[50px] h-[50px] md:right-[50px] md:h-[80px] cursor-pointer rounded-[50%]
+        md:w-[80px] md:bottom-[50px] bg-white border border-black"
+        >
+          <p className="text-[40px]">↑</p>
+        </div>
+      )}
       <Footer />
     </div>
   );

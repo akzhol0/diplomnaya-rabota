@@ -32,6 +32,7 @@ const Etaps = () => {
   const [info, setInfo] = useState({
     title: titles[0].title,
     desc: titles[0].desc,
+    id: titles[0].id,
   });
 
   return (
@@ -41,7 +42,7 @@ const Etaps = () => {
           <p
             onClick={() => {
               setCurrent(item.title);
-              setInfo({ title: item.title, desc: item.desc });
+              setInfo({ title: item.title, desc: item.desc, id: item.id });
             }}
             key={item.id}
             className={current === item.title ? "border-b border-red-600" : ""}
@@ -51,7 +52,9 @@ const Etaps = () => {
         ))}
       </div>
       <div className="mt-8 flex flex-col gap-6">
-        <p className="text-4xl md:text-4xl font-bold">{info.title}</p>
+        <p className="text-3xl md:text-4xl font-bold">
+          {info.id}. {info.title}
+        </p>
         <p className="text-md md:text-xl lg:text-3xl text-start">{info.desc}</p>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-const Header = ({ techRef, importantRef, keysRef, moreRef }) => {
+const Header = ({ techRef, importantRef, keysRef, moreRef, typesRef }) => {
   const [burger, setBurger] = useState(false);
 
   return (
@@ -45,6 +45,21 @@ const Header = ({ techRef, importantRef, keysRef, moreRef }) => {
               }}
             >
               Ключевые этапы
+            </button>
+          </li>
+          <li
+            onClick={() => setBurger(false)}
+            className="cursor-pointer border-b border-white hover:border-black duration-200"
+          >
+            <button
+              onClick={() => {
+                // eslint-disable-next-line react/prop-types
+                typesRef.current?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Виды аудита
             </button>
           </li>
           <button
@@ -115,6 +130,21 @@ const Header = ({ techRef, importantRef, keysRef, moreRef }) => {
                   }}
                 >
                   Ключевые этапы
+                </button>
+              </li>
+              <li
+                onClick={() => setBurger(false)}
+                className="cursor-pointer border-b border-white hover:border-black duration-200"
+              >
+                <button
+                  onClick={() => {
+                    // eslint-disable-next-line react/prop-types
+                    typesRef.current?.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Виды аудита
                 </button>
               </li>
               <button

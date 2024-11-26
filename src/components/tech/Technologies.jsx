@@ -44,7 +44,7 @@ const Technologies = () => {
             className="flex flex-col gap-4 border-b-2 border-[#1b1b1b] pb-8"
           >
             <p className="text-sm text-red-600 font-semibold lg:text-xl">
-              {item.title}
+              {item.id}. {item.title}
             </p>
             <p className="text-sm lg:text-base text-justify	lg:text-start">
               {item.desc}
